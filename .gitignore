@@ -1,0 +1,82 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ======================
+# Virtual Environments
+# ======================
+env/
+venv/
+ENV/
+.venv/
+
+# ======================
+# Django
+# ======================
+*.sqlite3
+db.sqlite3
+*.log
+*.pot
+*.pyc
+__pycache__/
+*/migrations/*.pyc
+*/migrations/__pycache__/
+!*/migrations/__init__.py
+
+# Media & static files
+media/
+uploads/
+staticfiles/
+static/
+
+# ======================
+# Environment variables
+# ======================
+.env
+.env.*
+config/settings_local.py
+
+# ======================
+# IDE / Editors
+# ======================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ======================
+# Mac / Linux system files
+# ======================
+.DS_Store
+*.swp
+*~
+
+# ======================
+# Testing & coverage
+# ======================
+.coverage
+htmlcov/
+.tox/
+pytest_cache/
+
+# ======================
+# Node / Frontend (optional)
+# ======================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ======================
+# Logs
+# ======================
+*.log
+logs/
