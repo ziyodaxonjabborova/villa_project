@@ -1,19 +1,11 @@
-from django.shortcuts import render
-from .models import Property  
+from django.shortcuts import render,redirect
 
-def home(request):
-    properties = Property.objects.all()
+def home_view(request):
+    return render(request,"main/index.html")
+
+def product_view(request):
+    return render(request,"main/properties.html")
+
+def contact_view(request):
+    return render(request,"main/contact.html")
     
-
-    appartments = Property.objects.filter(category__name='Appartment')
-    villas = Property.objects.filter(category__name='Villa')
-    penthouses = Property.objects.filter(category__name='Penthouse')
-
-    context = {
-        'properties': properties,
-        'appartments': appartments,
-        'villas': villas,
-        'penthouses': penthouses,
-    }
-    
-    return render(request, 'main/index.html', context)

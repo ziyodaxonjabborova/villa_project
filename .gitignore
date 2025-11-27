@@ -1,82 +1,163 @@
-# ======================
-# Python
-# ======================
+# ======================================================
+# PYTHON
+# ======================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyd
+*.pyo
 *.egg
 *.egg-info/
 dist/
 build/
+pip-wheel-metadata/
+wheels/
+*.manifest
+*.spec
 
-# ======================
-# Virtual Environments
-# ======================
+# ======================================================
+# DJANGO
+# ======================================================
+# Local DB files
+db.sqlite3
+*.sqlite3
+
+# Migrations cache (but keep __init__.py)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# Static & media generated files
+static/
+staticfiles/
+static_root/
+media/
+media_root/
+uploads/
+
+# Django logs
+*.log
+logs/
+logging/
+
+# Gunicorn log and pid files
+gunicorn.log
+gunicorn.pid
+
+# Additional environment based settings
+settings_local.py
+settings_dev.py
+settings_debug.py
+settings_production.py
+*.local.py
+
+# ======================================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ======================================================
+.env
+.env.*
+*.env
+*.key
+*.secret
+config/local_settings.py
+
+# ======================================================
+# VIRTUAL ENVIRONMENTS
+# ======================================================
 env/
 venv/
 ENV/
 .venv/
+.conda/
 
-# ======================
-# Django
-# ======================
-*.sqlite3
-db.sqlite3
-*.log
-*.pot
-*.pyc
-__pycache__/
-*/migrations/*.pyc
-*/migrations/__pycache__/
-!*/migrations/__init__.py
-
-# Media & static files
-media/
-uploads/
-staticfiles/
-static/
-
-# ======================
-# Environment variables
-# ======================
-.env
-.env.*
-config/settings_local.py
-
-# ======================
-# IDE / Editors
-# ======================
+# ======================================================
+# IDE / EDITOR FILES
+# ======================================================
 .vscode/
 .idea/
+*.code-workspace
 *.sublime-project
 *.sublime-workspace
-*.code-workspace
 
-# ======================
-# Mac / Linux system files
-# ======================
+# PyCharm
+*.iml
+*.ipr
+*.iws
+out/
+
+# ======================================================
+# OS SYSTEM FILES
+# ======================================================
 .DS_Store
+Thumbs.db
 *.swp
 *~
+.trash/
 
-# ======================
-# Testing & coverage
-# ======================
+# ======================================================
+# TESTING & COVERAGE
+# ======================================================
 .coverage
+.coverage.*
 htmlcov/
 .tox/
 pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
 
-# ======================
-# Node / Frontend (optional)
-# ======================
+# ======================================================
+# NODE / FRONTEND
+# ======================================================
 node_modules/
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+*.tsbuildinfo
 
-# ======================
-# Logs
-# ======================
+# ======================================================
+# DOCKER
+# ======================================================
+docker/
+docker-compose.override.yml
+docker-compose.local.yml
+*.pid
 *.log
-logs/
+
+# Docker volumes
+data/
+volumes/
+
+# ======================================================
+# CACHE / TEMP FILES
+# ======================================================
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+*.old
+
+# ======================================================
+# JUPYTER
+# ======================================================
+.ipynb_checkpoints/
+
+# ======================================================
+# CI/CD ARTIFACTS (GitHub, GitLab)
+# ======================================================
+.github/
+.gitlab/
+*.retry
+
+# ======================================================
+# OTHER COMMON IGNORE PATTERNS
+# ======================================================
+*.tar.gz
+*.zip
+*.7z
+

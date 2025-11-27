@@ -1,7 +1,11 @@
-# main/urls.py
+from django.contrib import admin
 from django.urls import path
-from . import views
+from .views import home_view,product_view,contact_view
+
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path("",home_view,name="home"),
+    path("/product",product_view,name="product"),
+    path("/contact",contact_view,name="contact"),
+
 ]
