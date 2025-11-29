@@ -100,9 +100,33 @@ https://templatemo.com/tm-591-villa-agency
               <!-- ***** Logo End ***** -->
               <!-- ***** Menu Start ***** -->
               <ul class="nav">
-                <li><a href="{% url 'home' %}" class="active">Home</a></li>
-                <li><a href="{% url 'product' %}">Properties</a></li>
-                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li>
+                  <a
+                    href="{% url 'home' %}"
+                    class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                  >
+                    Home
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="{% url 'product' %}"
+                    class="{% if request.resolver_match.url_name == 'product' %}active{% endif %}"
+                  >
+                    Properties
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="{% url 'contact' %}"
+                    class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+
                 <li>
                   <a href="#"><i class="fa fa-sign-out"></i> Logout </a>
                 </li>

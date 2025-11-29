@@ -1,5 +1,5 @@
 # ======================================================
-# PYTHON
+# PYTHON / GENERAL
 # ======================================================
 __pycache__/
 *.py[cod]
@@ -11,49 +11,48 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-pip-wheel-metadata/
 wheels/
 *.manifest
 *.spec
 
 # ======================================================
-# DJANGO
+# DJANGO CORE
 # ======================================================
-# Local DB files
+# Local DB
 db.sqlite3
 *.sqlite3
 
-# Migrations cache (but keep __init__.py)
+# Migrations cache (keep __init__.py)
 */migrations/__pycache__/
 */migrations/*.pyc
 !*/migrations/__init__.py
 
-# Static & media generated files
-static/
+# ======================================================
+# STATIC & MEDIA MANAGEMENT
+# ======================================================
+# DO NOT ignore: static/
+# (source CSS/JS/images — must be version controlled)
+
+# Ignore Django build output
 staticfiles/
 static_root/
+
+# User-uploaded files (never commit)
 media/
 media_root/
 uploads/
 
-# Django logs
+# ======================================================
+# LOGS
+# ======================================================
 *.log
 logs/
 logging/
-
-# Gunicorn log and pid files
 gunicorn.log
 gunicorn.pid
 
-# Additional environment based settings
-settings_local.py
-settings_dev.py
-settings_debug.py
-settings_production.py
-*.local.py
-
 # ======================================================
-# ENVIRONMENT VARIABLES & SECRETS
+# SETTINGS (SENSITIVE)
 # ======================================================
 .env
 .env.*
@@ -61,9 +60,14 @@ settings_production.py
 *.key
 *.secret
 config/local_settings.py
+settings_local.py
+settings_dev.py
+settings_debug.py
+settings_production.py
+*.local.py
 
 # ======================================================
-# VIRTUAL ENVIRONMENTS
+# VIRTUAL ENVS
 # ======================================================
 env/
 venv/
@@ -72,7 +76,7 @@ ENV/
 .conda/
 
 # ======================================================
-# IDE / EDITOR FILES
+# EDITOR / IDE
 # ======================================================
 .vscode/
 .idea/
@@ -80,14 +84,13 @@ ENV/
 *.sublime-project
 *.sublime-workspace
 
-# PyCharm
 *.iml
 *.ipr
 *.iws
 out/
 
 # ======================================================
-# OS SYSTEM FILES
+# OS JUNK FILES
 # ======================================================
 .DS_Store
 Thumbs.db
@@ -96,7 +99,7 @@ Thumbs.db
 .trash/
 
 # ======================================================
-# TESTING & COVERAGE
+# TESTING / COVERAGE
 # ======================================================
 .coverage
 .coverage.*
@@ -109,14 +112,13 @@ coverage.xml
 *.py,cover
 
 # ======================================================
-# NODE / FRONTEND
+# NODE / FRONTEND OPTIONAL
+# (if project uses React/Vue build inside)
 # ======================================================
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-dist/
-build/
 *.tsbuildinfo
 
 # ======================================================
@@ -126,14 +128,13 @@ docker/
 docker-compose.override.yml
 docker-compose.local.yml
 *.pid
-*.log
 
 # Docker volumes
 data/
 volumes/
 
 # ======================================================
-# CACHE / TEMP FILES
+# CACHE / TEMP
 # ======================================================
 .cache/
 tmp/
@@ -148,16 +149,15 @@ temp/
 .ipynb_checkpoints/
 
 # ======================================================
-# CI/CD ARTIFACTS (GitHub, GitLab)
+# CI/CD SYSTEM FILES
 # ======================================================
 .github/
 .gitlab/
 *.retry
 
 # ======================================================
-# OTHER COMMON IGNORE PATTERNS
+# ARCHIVES
 # ======================================================
 *.tar.gz
 *.zip
 *.7z
-
