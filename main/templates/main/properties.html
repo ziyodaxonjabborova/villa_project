@@ -16,94 +16,59 @@
 <div class="section properties">
   <div class="container">
     <ul class="properties-filter">
-      <li><a class="is_active" href="#!" data-filter="*">Show All</a></li>
-      <li><a href="#!" data-filter=".adv">Apartment</a></li>
-      <li><a href="#!" data-filter=".str">Villa House</a></li>
-      <li><a href="#!" data-filter=".rac">Penthouse</a></li>
+      <li><a {% if not category_filter %} class="is_active" {% endif %}href="{% url 'property' %}" >Show All</a></li>
+      {% for category in categories %}
+      {% if category.villas.exists %}
+      <li><a {% if category_filter == category.name %} class="is_active" {% endif %} href="?category={{category.name}}" >{{category.name}}</a></li>
+      {%endif%}
+      {% endfor %}
+
     </ul>
-
     <div class="row properties-box">
-      <!-- Property Item 1 -->
-      <div
-        class="col-lg-4 col-md-6 align-self-center mb-30 properties-items adv"
-      >
+      {% for villa in villas %}
+      <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items adv">
         <div class="item">
-          <a href="#">
-            <img
-              src="{% static 'images/property-01.jpg' %}"
-              alt="Property 01"
-            />
+          
+          <!-- IMAGE -->
+          <a href="{% url 'detail' villa.pk %}">
+            <img style="height: 200px;" src="{{ villa.image.url }}" alt="{{ villa.name }}">
           </a>
-          <span class="category">Luxury Villa</span>
-          <h6>$2.264.000</h6>
-          <h4><a href="#">18 Old Street Miami, OR 97219</a></h4>
+    
+          <!-- CATEGORY -->
+          <span class="category">{{ villa.category }}</span>
+    
+          <!-- PRICE -->
+          <h6>${{ villa.price }}</h6>
+    
+          <!-- NAME / ADDRESS -->
+          <h4>
+            <a href="{% url 'detail' villa.pk %}">{{ villa.name }}</a>
+          </h4>
+    
+          <!-- PROPERTY DETAILS -->
           <ul>
-            <li>Bedrooms: <span>8</span></li>
-            <li>Bathrooms: <span>8</span></li>
-            <li>Area: <span>545m2</span></li>
-            <li>Floor: <span>3</span></li>
-            <li>Parking: <span>6 spots</span></li>
+            <li>Bedrooms: <span>{{ villa.bedroom }}</span></li>
+            <li>Bathrooms: <span>{{ villa.bathroom }}</span></li>
+            <li>Area: <span>{{ villa.area }} m²</span></li>
+            <li>Floor: <span>{{ villa.floor }}</span></li>
+            <li>Parking: <span>{{ villa.parking }} spots</span></li>
           </ul>
+    
+          <!-- BUTTON -->
           <div class="main-button">
-            <a href="#">Schedule a visit</a>
+            <a href="{% url 'detail' villa.pk %}">View Details</a>
           </div>
+    
         </div>
       </div>
-
-      <!-- Property Item 2 -->
-      <div
-        class="col-lg-4 col-md-6 align-self-center mb-30 properties-items str"
-      >
-        <div class="item">
-          <a href="#">
-            <img
-              src="{% static 'images/property-02.jpg' %}"
-              alt="Property 02"
-            />
-          </a>
-          <span class="category">Luxury Villa</span>
-          <h6>$1.180.000</h6>
-          <h4><a href="#">54 New Street Florida, OR 27001</a></h4>
-          <ul>
-            <li>Bedrooms: <span>6</span></li>
-            <li>Bathrooms: <span>5</span></li>
-            <li>Area: <span>450m2</span></li>
-            <li>Floor: <span>3</span></li>
-            <li>Parking: <span>8 spots</span></li>
-          </ul>
-          <div class="main-button">
-            <a href="#">Schedule a visit</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Property Item 3 -->
-      <div
-        class="col-lg-4 col-md-6 align-self-center mb-30 properties-items adv rac"
-      >
-        <div class="item">
-          <a href="#">
-            <img
-              src="{% static 'images/property-03.jpg' %}"
-              alt="Property 03"
-            />
-          </a>
-          <span class="category">Luxury Villa</span>
-          <h6>$1.460.000</h6>
-          <h4><a href="#">26 Mid Street Portland, OR 38540</a></h4>
-          <ul>
-            <li>Bedrooms: <span>5</span></li>
-            <li>Bathrooms: <span>4</span></li>
-            <li>Area: <span>225m2</span></li>
-            <li>Floor: <span>3</span></li>
-            <li>Parking: <span>10 spots</span></li>
-          </ul>
-          <div class="main-button">
-            <a href="#">Schedule a visit</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
+    
+    
+    
+
+
+
 
     <div class="row">
       <div class="col-lg-12">
